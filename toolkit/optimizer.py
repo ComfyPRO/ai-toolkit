@@ -103,6 +103,9 @@ def get_optimizer(
     elif lower_type == 'automagic3':
         from toolkit.optimizers.automagic3 import Automagic3
         optimizer = Automagic3(params, lr=float(learning_rate), **optimizer_params)
+    elif lower_type == 'rose':
+        from rose_opt import Rose
+        optimizer = Rose(params, lr=float(learning_rate), **optimizer_params)
     else:
         raise ValueError(f'Unknown optimizer type {optimizer_type}')
     return optimizer
